@@ -16,14 +16,12 @@ coherente con la identidad visual de la Constructora.
 
 ## 📖 Frameworks
 - [React](https://github.com/facebook/react) ∙ [Redux](https://github.com/reduxjs/redux)
-    - Client & Data management
 - [NextJS](https://github.com/vercel/next.js)
-    - SSR, SSG, Routing
 
-## ✏️ Author
+## ✏️ Autor
 Richar Contreras
 
-## 🔑 License
+## 🔑 Licencia
 This project is licensed under the MIT License - see the LICENSE file for details
 
 
