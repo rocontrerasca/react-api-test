@@ -24,4 +24,9 @@ Richar Contreras
 ## 🔑 Licencia
 This project is licensed under the MIT License - see the LICENSE file for details
 
+## Ejecución local
+- Para ejecutar el proyecto localmente, se debe agregar las variables de entorno en el archivo next.config.js, dando los valores de CLIENT_ID y CLIENT_SECRET de la API de Spotify.
+- Instalar dependencias con el comando npm install
+- Ejecutar el aplicativo web npm run dev
+
 

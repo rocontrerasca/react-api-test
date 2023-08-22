@@ -1,12 +1,5 @@
-import { ReactNode } from "react";
 import { Home, Search } from 'tabler-icons-react';
-
-type MenuItem = {
-    url: string;
-    icon: ReactNode;
-    title: string;
-    supressLink: boolean;
-}
+import {MenuItem} from '../models/MenuItem'
 
 export const menuItems: MenuItem[] = [
     {
