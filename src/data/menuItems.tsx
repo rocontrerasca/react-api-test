@@ -1,14 +1,14 @@
 import { ReactNode } from "react";
-import { Home, Search, Books, Plus, Heart } from 'tabler-icons-react';
+import { Home, Search } from 'tabler-icons-react';
 
-type NavbarItem = {
+type MenuItem = {
     url: string;
     icon: ReactNode;
     title: string;
     supressLink: boolean;
 }
 
-export const navbarItems: NavbarItem[] = [
+export const menuItems: MenuItem[] = [
     {
         url: '/',
         icon: <Home size={24} />,

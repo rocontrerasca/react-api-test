@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
-import { navbarItems } from '../../data/navbarItems';
+import { menuItems } from '../../data/menuItems';
 import NavbarItem from './NavbarItem';
 import { useAppDispatch } from '../../store/hooks';
 import { closeMenu } from '../../store/features/menu.slice';
@@ -71,7 +71,7 @@ const Navbar = () => {
 
     const getSlicedItems = (start: number, end?: number) => (
         <>
-            {navbarItems.slice(start, end).map((item, key) => (
+            {menuItems.slice(start, end).map((item, key) => (
                 <div key={key}>
                     <Link href={item.url} passHref>
                         <a>
