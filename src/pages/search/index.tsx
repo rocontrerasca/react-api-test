@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react'
 import MediaItem from '../../components/MediaItem/MediaItem';
 import { Breakpoint, maxWidth, minWidth } from '../../utils/breakpoints';
 import { getForUList, getTopArtists } from "../../api/callers";
-import LandingPage from "../../layouts/LandingPage";
+import MainLayout from "../../layouts/MainLayout";
 
 const useStyles = createStyles({
     gridContainer: {
@@ -56,8 +56,8 @@ const Search: NextPage = () => {
 
     useEffect(() => {
         getTopArtists(token, 4).then((resArtist: any) => {
-            getForUList(token, resArtist.map((art: any) => art.id).join(',')).then((res: any) => {
-                setForUList(res)
+            getForUList(token, resArtist.items.map((art: any) => art.id).join(',')).then((res: any) => {
+                setForUList(res.items)
             });
         });
 
@@ -86,7 +86,7 @@ const Search: NextPage = () => {
                         </div>
                     </div>
                 </>
-                : <LandingPage />
+                : <MainLayout><></></MainLayout>
             }
         </>
     )

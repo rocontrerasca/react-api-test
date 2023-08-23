@@ -23,7 +23,9 @@ const UserProfile = () => {
 
     useEffect(() => {
         let token = window.localStorage.getItem("token")
-        getUser(token).then((res: any) => setUser(res));
+        getUser(token).then((res: any) => {
+            setUser(res)
+        });
     }, []);
 
     return (
@@ -51,10 +53,10 @@ const UserProfile = () => {
                         <div className='flex justify-center items-center'>
                             <img alt='Profile Image' className="p-0.5 rounded-full" width={28} height={28}
                                 src={user === null || user?.images?.length === 0 ?
-                                    "https://avatars.dicebear.com/api/jdenticon/xyz.svg" : user?.images[0]?.url} />
+                                    "https://avatars.dicebear.com/api/jdenticon/xyz.svg" : user?.imgUrl} />
                         </div>
                         <>
-                            <Text size="sm" weight="bold">{user?.display_name}</Text>
+                            <Text size="sm" weight="bold">{user?.username}</Text>
                             <div className={styles.logout_btn}>
                                 <a
                                     title="Logout"

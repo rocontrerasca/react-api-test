@@ -2,7 +2,7 @@ import api from "../../utils/api";
 
 const getUser = async (token) => {
   try {
-    const res = await api.get("/me", {
+    const res = await api.get("/user/profile", {
       headers: {
         Authorization: `Bearer ${token}`,
       },

@@ -36,7 +36,6 @@ const MainLayout: FunctionComponent<{ children: ReactNode }> = ({ children }) =>
     const closeMenu = () => dispatch(toggleMenu());
 
     const [token, setToken] = useState("");
-
     useEffect(() => {
         const hash = window.location.hash;
         let token = window.localStorage.getItem("token")

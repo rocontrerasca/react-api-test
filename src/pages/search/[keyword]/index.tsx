@@ -34,12 +34,12 @@ const KeywordSearch: NextPage = () => {
                         ))}
                     </MediaSection>
                     <MediaSection link='/' title='Albumes'>
-                        {searchResultList.artists.map((item, key) => (
+                        {searchResultList.albums.map((item, key) => (
                             <ArtistItem key={key} {...item} />
                         ))}
                     </MediaSection>
                     <MediaSection link='/' title='Artistas'>
-                        {searchResultList.albums.map((item, key) => (
+                        {searchResultList.artists.map((item, key) => (
                             <ArtistItem key={key} {...item} />
                         ))}
                     </MediaSection>

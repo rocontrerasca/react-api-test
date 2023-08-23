@@ -2,7 +2,7 @@ import api from "../../utils/api";
 
 const getTopTracks = async (token, limit) => {
   try {
-    const topTracks = await api.get("/me/top/tracks", {
+    const topTracks = await api.get("/user/top/tracks", {
       headers: {
         Authorization: `Bearer ${token
           }`,
@@ -11,16 +11,7 @@ const getTopTracks = async (token, limit) => {
         limit: limit || 5,
       },
     });
-    return topTracks.data.items.map(function (item) {
-      return {
-        title: item.name,
-        artist: item.artists.map(e => e.name).join(' & '),
-        imgUrl: item.album.images[0]?.url,
-        id: item.id
-      }
-    }).filter(function (x, i, a) {
-      return a.findIndex(obj => obj.id === x.id) === i;
-    })
+    return topTracks.data
   } catch (error) {
     if (error.message.includes("401")) {
       window.localStorage.removeItem("token");

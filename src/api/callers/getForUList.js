@@ -8,21 +8,12 @@ const getForUList = async (token, seedArtist) => {
           }`,
       },
       params: {
-        seed_artists: seedArtist,
+        seedArtists: seedArtist,
         limit: 15,
-        markey: "CO"
+        market: "CO"
       },
     });
-    return forU.data.tracks.map(function (item) {
-      return {
-        title: item.name,
-        artist: item.artists.map(e => e.name).join(' & '),
-        imgUrl: item.album.images[0]?.url,
-        id: item.id
-      }
-    }).filter(function (x, i, a) {
-      return a.findIndex(obj => obj.id === x.id) === i;
-    })
+    return forU.data
   } catch (error) {
     if (error.message.includes("401")) {
       window.localStorage.removeItem("token");

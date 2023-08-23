@@ -4,7 +4,7 @@ import MediaItem from '../components/MediaItem/MediaItem';
 import ArtistItem from '../components/ArtistItem/ArtistItem'
 import React, { useState, useEffect } from 'react';
 import { getLastPlayed, getTopTracks, getTopArtists } from "../api/callers";
-import LandingPage from "./../layouts/LandingPage";
+import MainLayout from "./../layouts/MainLayout";
 
 const Home: NextPage = () => {
   const [lastPlayed, setLastPlayed] = useState([]);
@@ -14,13 +14,13 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     getLastPlayed(token, 10).then((res: any) => {
-      setLastPlayed(res)
+      setLastPlayed(res.items)
     });
     getTopTracks(token, 10).then((res: any) => {
-      setTopTracks(res)
+      setTopTracks(res.items)
     });
     getTopArtists(token, 10).then((res: any) => {
-      setTopArtist(res)
+      setTopArtist(res.items)
     });
   }, []);
 
@@ -44,7 +44,7 @@ const Home: NextPage = () => {
             ))}
           </MediaSection>
         </div>
-        : <LandingPage />
+        : <MainLayout><></></MainLayout>
       }
     </>
   )

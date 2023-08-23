@@ -36,12 +36,13 @@ const MediaItem: FunctionComponent<MediaItemProps> = (item) => {
             <div className='h-full'>
                 <div className='mb-4 relative'>
                     <div className={classes.imgWrapper}>
-                        <img alt={item.title} className='rounded-md' src={item.imgUrl} />
+                        <img alt={item.name} className='rounded-md' src={item.imgUrl} />
                     </div>
                 </div>
                 <div className='min-h-[62px]'>
-                    <Text title={item.title} lineClamp={1} className='pb-1' size="md" weight={700}>{item.title}</Text>
+                    <Text title={item.name} lineClamp={1} className='pb-1' size="md" weight={700}>{item.name}</Text>
                     <Text title={item.artist} lineClamp={1} size="sm">{item.artist}</Text>
+                    <Text lineClamp={1} size="sm">{item.type}</Text>
                 </div>
             </div>
         </div>
