@@ -3,10 +3,32 @@ import styles from "./.module.sass";
 import Link from "next/link";
 import AppLogo from "../public/assets/icons/logo";
 import { useRouter } from "next/router";
-import { SPOTIFY_LOGIN } from "../utils/spotifyLogin";
+import { CLIENT_ID, REDIRECT_URI, SCOPES, AUTH_ENDPOINT } from "../utils/dataUrl";
+import { generateRandomString, generateCodeChallenge } from '../utils/functions'
 
 export default function LandingPage() {
   const router = useRouter();
+
+  let codeVerifier = generateRandomString(128);
+
+  function onClickAuthorization() {
+    generateCodeChallenge(codeVerifier).then(codeChallenge => {
+      let state = generateRandomString(16);
+
+      localStorage.setItem('code_verifier', codeVerifier);
+
+      let args = new URLSearchParams({
+        response_type: 'code',
+        client_id: CLIENT_ID,
+        scope: SCOPES,
+        redirect_uri: REDIRECT_URI,
+        state: state,
+        code_challenge_method: 'S256',
+        code_challenge: codeChallenge
+      });
+      router.push(`${AUTH_ENDPOINT}?${args}`);
+    });
+  }
 
   return (
     <div className={styles.app_landing_wrapper}>
@@ -33,9 +55,7 @@ export default function LandingPage() {
               </p>
               <button
                 title="Login Into Spotify"
-                onClick={() => {
-                  router.push(SPOTIFY_LOGIN);
-                }}
+                onClick={onClickAuthorization}
                 className={styles.login_cta_btn_styled}
               >
                 Iniciar sesión

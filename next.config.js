@@ -3,8 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   env: {
-    CLIENT_ID: "",
-    CLIENT_SECRET: ""
+    CLIENT_ID: ""
   },
   images: {
     domains: ['i.scdn.co', 't.scdn.co', 'images.unsplash.com', 'charts-images.scdn.co', 'avatars.dicebear.com',
