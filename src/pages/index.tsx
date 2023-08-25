@@ -4,7 +4,7 @@ import MediaItem from '../components/MediaItem/MediaItem';
 import ArtistItem from '../components/ArtistItem/ArtistItem'
 import React, { useState, useEffect } from 'react';
 import { getLastPlayed, getTopTracks, getTopArtists } from "../api/callers";
-import MainLayout from "./../layouts/MainLayout";
+import MainLayout from "../layouts/MainLayout";
 
 const Home: NextPage = () => {
   const [lastPlayed, setLastPlayed] = useState([]);
@@ -34,12 +34,12 @@ const Home: NextPage = () => {
             ))}
           </MediaSection>
           <MediaSection link='/' title='Tus canciones favoritas'>
-            {topTracks?.map((item, key) => (
+            {topTracks?.map((item: any, key) => (
               <MediaItem key={key} {...item} />
             ))}
           </MediaSection>
           <MediaSection link='/' title='Tus artistas favoritos'>
-            {topArtist?.map((item, key) => (
+            {topArtist?.map((item: any, key) => (
               <ArtistItem key={key} {...item} />
             ))}
           </MediaSection>
