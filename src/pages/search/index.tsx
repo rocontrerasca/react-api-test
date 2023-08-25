@@ -56,7 +56,7 @@ const Search: NextPage = () => {
 
     useEffect(() => {
         getTopArtists(token, 4).then((resArtist: any) => {
-            getForUList(token, resArtist.items.map((art: any) => art.id).join(',')).then((res: any) => {
+            getForUList(token, resArtist.items?.map((art: any) => art.id).join(',')).then((res: any) => {
                 setForUList(res.items)
             });
         });

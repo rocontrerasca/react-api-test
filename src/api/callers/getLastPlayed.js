@@ -15,11 +15,8 @@ const getLastPlayed = async (token, limit) => {
   } catch (error) {
     if (error.message.includes("401")) {
       window.localStorage.removeItem("token");
-      return null
     }
-    else {
-      return [];
-    }
+    return [];
   }
 };
 

@@ -18,15 +18,12 @@ const getResults = async (token, query) => {
   } catch (error) {
     if (error.message.includes("401")) {
       window.localStorage.removeItem("token");
-      return null
     }
-    else {
-      return {
-        albums: [],
-        tracks: [],
-        artists: [],
-        playList: []
-      }
+    return {
+      albums: [],
+      tracks: [],
+      artists: [],
+      playList: []
     }
   }
 };
